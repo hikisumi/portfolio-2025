@@ -9,6 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.9.4"
+    "astro": "^5.9.4",
+    "bootstrap": "^5.3.7",
+    "microcms-js-sdk": "^3.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

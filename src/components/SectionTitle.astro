@@ -1,0 +1,15 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<h2
+  class:list={[
+    "page-section-heading",
+    "text-center",
+    "text-uppercase",
+    className,
+  ]}
+  {...rest}
+>
+  <slot />
+</h2>

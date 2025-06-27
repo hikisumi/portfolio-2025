@@ -1,0 +1,50 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import Divider from "./Divider.astro";
+import { Picture } from "astro:assets";
+import workThum from "../assets/work_thumbnail.png";
+import { getWorks } from "../library/microcms";
+const response = await getWorks({ fields: ["id", "title"] });
+---
+
+<!-- Portfolio Section-->
+<section class="page-section portfolio" id="works">
+  <div class="container">
+    <!-- Portfolio Section Heading-->
+    <SectionTitle class="text-secondary mb-0">Works</SectionTitle>
+    <Divider class="mt-1 mb-5" />
+
+    <!-- Portfolio Grid Items-->
+    <div class="row justify-content-start">
+      <!-- Portfolio Item 1-->
+
+      {
+        response.contents.map((content: any, i) => (
+          <div class="col-6 col-md-6 col-lg-3 mb-5">
+            <div
+              class="portfolio-item portfolio-works mx-auto text-center"
+              data-bs-toggle="modal"
+              data-bs-target={`#workModal${i + 1}`}
+            >
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white fw-bold">
+                  {content.title}
+                </div>
+              </div>
+              <div>
+                <Picture
+                  class="img-fluid"
+                  src={workThum}
+                  formats={["webp"]}
+                  alt=""
+                  width={900}
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

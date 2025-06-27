@@ -1,0 +1,44 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import Divider from "./Divider.astro";
+import { getSkills } from "../library/microcms";
+const response = await getSkills({ fields: ["id", "title", "image"] });
+---
+
+<!-- Portfolio Section-->
+<section class="page-section portfolio" id="skill">
+  <div class="container">
+    <!-- Portfolio Section Heading-->
+    <SectionTitle class="text-secondary mb-0">Skill</SectionTitle>
+    <Divider class="mt-1 mb-5" />
+
+    <!-- Portfolio Grid Items-->
+    <div class="row justify-content-start">
+      <!-- Portfolio Item 1-->
+
+      {
+        response.contents.map((content: any, i) => (
+          <div class="col-6 col-md-4 col-lg-2 mb-5">
+            <div
+              class="portfolio-item portfolio-skill mx-auto"
+              data-bs-toggle="modal"
+              data-bs-target={`#skillModal${i + 1}`}
+            >
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="d-flex align-items-center justify-content-center">
+                  <img
+                    class="my-3"
+                    src={`${content.image.url}?&auto=format`}
+                    alt={content.title}
+                    height="50"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

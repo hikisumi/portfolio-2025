@@ -1,0 +1,10 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<!-- Icon Divider-->
+<div class:list={["divider-custom", className]} {...rest}>
+  <div class="divider-custom-line"></div>
+  <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+  <div class="divider-custom-line"></div>
+</div>
