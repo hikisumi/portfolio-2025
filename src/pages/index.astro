@@ -8,6 +8,7 @@ import SkillModal from "../components/SkillModal.astro";
 import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro:assets";
 import profile from "../assets/avataaars.svg";
+import github from "../assets/github-mark-white.svg";
 ---
 
 <Layout>
@@ -120,9 +121,23 @@ import profile from "../assets/avataaars.svg";
           <h4 class="text-uppercase mb-4">Around the Web</h4>
           <a
             class="btn btn-outline-light btn-social mx-1"
+            target="_blank"
             href="https://github.com/hikisumi/portfolio-2025"
           >
-            <i class="fab fa-fw fa-github"></i>
+            <Picture
+              src={github}
+              formats={["webp"]}
+              alt="githubロゴ"
+              height="40"
+              loading="eager"
+            />
+          </a>
+          <a
+            class="btn btn-outline-light btn-social mx-1"
+            target="_blank"
+            href="https://qiita.com/smkhkc"
+          >
+            <i class="fa-solid fa-globe"></i>
           </a>
         </div>
       </div>
